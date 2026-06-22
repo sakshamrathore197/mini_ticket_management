@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Dashboard</h2>
+
+
+<div style="margin-bottom:20px;">
+
+
+</div>
+<div class="dashboard">
+
+    <div class="dashboard-card">
+        <h2>{{total}}</h2>
+        <p>Total Tickets</p>
+    </div>
+
+    <div class="dashboard-card">
+        <h2>{{open_count}}</h2>
+        <p>Open</p>
+    </div>
+
+    <div class="dashboard-card">
+        <h2>{{progress}}</h2>
+        <p>In Progress</p>
+    </div>
+
+    <div class="dashboard-card">
+        <h2>{{resolved}}</h2>
+        <p>Resolved</p>
+    </div>
+
+    <div class="dashboard-card">
+        <h2>{{closed}}</h2>
+        <p>Closed</p>
+    </div>
+
+    <div class="dashboard-card">
+        <h2>{{critical}}</h2>
+        <p>Critical</p>
+    </div>
+
+</div>
+<h3>Today's Tickets : {{today_count}}</h3>
+<hr>
+
+<h3>Latest Tickets</h3>
+
+<ul>
+{% for ticket in latest %}
+<li>
+{{ticket.ticket_number}} -
+{{ticket.issue_title}}
+</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

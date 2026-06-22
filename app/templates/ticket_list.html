@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block title %}
+Ticket List
+{% endblock %}
+
+{% block content %}
+
+<h2>Ticket List</h2>
+
+<a href="/create-ticket">
+    Create New Ticket
+</a>
+<a href="/">
+<button type="button">
+Back To Dashboard
+</button>
+</a>
+
+<br><br>
+
+<form method="get">
+
+<input
+type="text"
+name="search"
+placeholder="Search Ticket"
+value="{{search}}"
+>
+
+<select name="status">
+
+<option value="">
+All Status
+</option>
+
+<option>
+Open
+</option>
+
+<option>
+In Progress
+</option>
+
+<option>
+Resolved
+</option>
+
+<option>
+Closed
+</option>
+
+</select>
+
+
+<button type="submit">
+Search
+</button>
+
+</form>
+
+<br>
+
+<br><br>
+
+<table border="1" cellpadding="10">
+
+    <tr>
+        <th>Ticket No</th>
+        <th>Client</th>
+        <th>Company</th>
+        <th>Issue</th>
+        <th>Category</th>
+        <th>Priority</th>
+        <th>Status</th>
+        <th>Assigned To</th>
+        <th>Action</th>
+    </tr>
+
+    {% for ticket in tickets %}
+
+    <tr>
+
+        <td>{{ticket.ticket_number}}</td>
+
+        <td>{{ticket.client_name}}</td>
+
+        <td>{{ticket.company}}</td>
+
+        <td>{{ticket.issue_title}}</td>
+
+        <td>{{ticket.category}}</td>
+
+        <td>{{ticket.priority}}</td>
+
+        <td>
+            <span class="badge">
+                {{ticket.status}}
+            </span>
+        </td>
+
+        <td>{{ticket.assigned_to}}</td>
+
+        <td>
+            <a href="/ticket/{{ticket.id}}">
+                View
+            </a>
+        </td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}

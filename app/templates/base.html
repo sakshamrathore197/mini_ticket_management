@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="navbar">
+
+        <a href="/">Dashboard</a>
+
+        <a href="/create-ticket">
+            Create Ticket
+        </a>
+
+        <a href="/tickets">
+            Ticket List
+        </a>
+
+        <a href="/employees">
+            Manage Employees
+        </a>
+
+        
+
+        <a href="/login">
+            Login
+        </a>
+
+        <a href="/logout">
+            Logout
+        </a>
+
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
+</div>
+
+</body>
+</html>

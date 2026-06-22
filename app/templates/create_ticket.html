@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}
+Create Ticket
+{% endblock %}
+
+{% block content %}
+
+<h2>Create Ticket</h2>
+<a href="/">
+<button type="button">
+Back To Dashboard
+</button>
+</a>
+
+<br><br>
+
+<form method="post">
+
+    <p>
+        Client Name
+        <input type="text" name="client_name" required>
+    </p>
+
+    <p>
+        Mobile
+        <input type="text" name="mobile" required>
+    </p>
+
+    <p>
+        Email
+        <input type="email" name="email">
+    </p>
+
+    <p>
+        Company
+        <input type="text" name="company">
+    </p>
+
+    <p>
+        Issue Title
+        <input type="text" name="issue_title" required>
+    </p>
+
+    <p>
+        Issue Description
+        <textarea name="issue_description"></textarea>
+    </p>
+
+    <p>
+        Category
+
+        <select name="category">
+
+            <option>Software Issue</option>
+            <option>Hardware Issue</option>
+            <option>Networking Issue</option>
+            <option>Email Issue</option>
+            <option>Server Issue</option>
+            <option>Website Issue</option>
+
+        </select>
+
+    </p>
+
+    <p>
+
+        Priority
+
+        <select name="priority">
+
+            <option>Low</option>
+            <option>Medium</option>
+            <option>High</option>
+            <option>Critical</option>
+
+        </select>
+
+    </p>
+
+    <select name="assigned_to">
+        {% for emp in employees %}
+        <option>
+            {{emp.name}}
+        </option>
+        {% endfor %}
+
+    </select>
+
+    <button type="submit">
+        Create Ticket
+    </button>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,179 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    padding:20px;
+}
+
+.container{
+    width:90%;
+    margin:auto;
+}
+
+h1,h2,h3{
+    margin-bottom:15px;
+    color:#333;
+}
+
+.navbar{
+    background:#1e3a8a;
+    padding:15px;
+    margin-bottom:20px;
+    border-radius:8px;
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+    margin-right:20px;
+    font-weight:bold;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom:20px;
+}
+
+.dashboard{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.dashboard-card{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.dashboard-card h2{
+    color:#2563eb;
+}
+
+form{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom:20px;
+}
+
+input,
+textarea,
+select{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+button{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+table th{
+    background:#2563eb;
+    color:white;
+    padding:12px;
+}
+
+table td{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+}
+
+table tr:hover{
+    background:#f8fafc;
+}
+
+.badge{
+    padding:5px 10px;
+    border-radius:20px;
+    color:white;
+    font-size:12px;
+}
+
+.open{
+    background:#3b82f6;
+}
+
+.progress{
+    background:#f59e0b;
+}
+
+.resolved{
+    background:#10b981;
+}
+
+.closed{
+    background:#6b7280;
+}
+
+.critical{
+    background:#dc2626;
+}
+
+.low{
+    background:#16a34a;
+}
+
+.medium{
+    background:#f59e0b;
+}
+
+.high{
+    background:#ea580c;
+}
+
+a{
+    text-decoration:none;
+    color:#2563eb;
+}
+
+.ticket-detail p{
+    margin-bottom:10px;
+}
+
+.history-box{
+    background:#f9fafb;
+    padding:10px;
+    border-left:4px solid #2563eb;
+    margin-bottom:10px;
+    border-radius:5px;
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+    margin-right:30px;
+    font-weight:bold;
+}

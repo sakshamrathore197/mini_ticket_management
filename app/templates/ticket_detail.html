@@ -1,0 +1,264 @@
+{% extends "base.html" %}
+
+{% block title %}
+Ticket Detail
+{% endblock %}
+
+{% block content %}
+
+<h2>Ticket Detail</h2>
+
+<hr>
+
+<h3>Ticket Information</h3>
+
+<p>
+    <b>Ticket Number:</b>
+    {{ ticket.ticket_number }}
+</p>
+
+<p>
+    <b>Client Name:</b>
+    {{ ticket.client_name }}
+</p>
+
+<p>
+    <b>Mobile:</b>
+    {{ ticket.mobile }}
+</p>
+
+<p>
+    <b>Email:</b>
+    {{ ticket.email }}
+</p>
+
+<p>
+    <b>Company:</b>
+    {{ ticket.company }}
+</p>
+
+<p>
+    <b>Issue Title:</b>
+    {{ ticket.issue_title }}
+</p>
+
+<p>
+    <b>Issue Description:</b>
+    {{ ticket.issue_description }}
+</p>
+
+<p>
+    <b>Category:</b>
+    {{ ticket.category }}
+</p>
+
+<p>
+    <b>Priority:</b>
+    {{ ticket.priority }}
+</p>
+
+<p>
+    <b>Status:</b>
+    {{ ticket.status }}
+</p>
+
+<p>
+    <b>Assigned To:</b>
+    {{ ticket.assigned_to }}
+</p>
+
+<p>
+    <b>Created At:</b>
+    {{ ticket.created_at }}
+</p>
+
+<hr>
+
+<h3>Update Ticket Status</h3>
+
+<form action="/ticket/{{ ticket.id }}/status" method="post">
+
+    <select name="new_status">
+
+        <option value="Open">Open</option>
+
+        <option value="In Progress">
+            In Progress
+        </option>
+
+        <option value="Waiting for Client">
+            Waiting for Client
+        </option>
+
+        <option value="Resolved">
+            Resolved
+        </option>
+
+        <option value="Closed">
+            Closed
+        </option>
+
+        <option value="Cancelled">
+            Cancelled
+        </option>
+
+    </select>
+
+    <button type="submit">
+        Update Status
+    </button>
+
+</form>
+
+<hr>
+
+<h3>Add Remark</h3>
+
+<form action="/ticket/{{ ticket.id }}/remark" method="post">
+
+    <p>
+
+        Added By
+
+        <input
+            type="text"
+            name="added_by"
+            required
+        >
+
+    </p>
+
+    <p>
+
+        Remark
+
+        <textarea
+            name="remark"
+            rows="4"
+            cols="50"
+            required
+        ></textarea>
+
+    </p>
+
+    <button type="submit">
+        Add Remark
+    </button>
+
+</form>
+
+<hr>
+
+<h3>Remark History</h3>
+
+{% if remarks %}
+
+    {% for r in remarks %}
+
+        <div>
+
+            <b>{{ r.added_by }}</b>
+
+            <br>
+
+            {{ r.remark }}
+
+            <br>
+
+            <small>
+                {{ r.created_at }}
+            </small>
+
+        </div>
+
+        <hr>
+
+    {% endfor %}
+
+{% else %}
+
+    <p>No remarks added.</p>
+
+{% endif %}
+
+<hr>
+
+<h3>Status History</h3>
+
+{% if history %}
+
+    <table border="1" cellpadding="10">
+
+        <tr>
+            <th>Old Status</th>
+            <th>New Status</th>
+            <th>Changed By</th>
+            <th>Date</th>
+        </tr>
+
+        {% for h in history %}
+
+        <tr>
+
+            <td>{{ h.old_status }}</td>
+
+            <td>{{ h.new_status }}</td>
+
+            <td>{{ h.changed_by }}</td>
+
+            <td>{{ h.changed_at }}</td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+{% else %}
+
+    <p>No status updates available.</p>
+
+{% endif %}
+
+<hr>
+
+<h3>Close Ticket</h3>
+
+<form
+action="/ticket/{{ticket.id}}/close"
+method="post"
+>
+
+<textarea
+name="closing_remark"
+placeholder="Closing Remark"
+required
+></textarea>
+
+<br><br>
+
+<button type="submit">
+Close Ticket
+</button>
+
+</form>
+
+<hr>
+<br>
+
+<a href="/">
+<button type="button">
+Back To Dashboard
+</button>
+</a>
+
+<a href="/tickets">
+<button type="button">
+Back To Ticket List
+</button>
+</a>
+<a href="/tickets">
+    Back To Ticket List
+</a>
+
+{% endblock %}
